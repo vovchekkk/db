@@ -13,7 +13,9 @@ namespace ConsoleApp
         private Program(string[] args)
         {
             userRepo = new InMemoryUserRepository();
-            gameRepo = new MongoGameRepository();
+            var client = new MongoClient("mongodb://localhost:27017");
+			var db = client.GetDatabase("game");
+			gameRepo = new MongoGameRepository(db);
         }
 
         public static void Main(string[] args)
