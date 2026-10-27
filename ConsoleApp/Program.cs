@@ -13,7 +13,7 @@ namespace ConsoleApp
         private Program(string[] args)
         {
             userRepo = new InMemoryUserRepository();
-            gameRepo = new InMemoryGameRepository();
+            gameRepo = new MongoGameRepository();
         }
 
         public static void Main(string[] args)
