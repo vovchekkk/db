@@ -12,7 +12,8 @@ namespace ConsoleApp
 
         private Program(string[] args)
         {
-            userRepo = new InMemoryUserRepository();
+            var db = MongoDatabase.Create();
+            userRepo = new MongoUserRepository(db);
             gameRepo = new InMemoryGameRepository();
         }
 
